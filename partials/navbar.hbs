@@ -1,9 +1,12 @@
 <div id="banner-wrapper">
   <div id="banner" class="smart-padding">
     <div id="title-box">
-      <h1 class="site-title">
-        Site name
-      </h1>
+      {{#if @blog.logo}}
+          <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" />
+      {{else}}
+          {{@blog.title}}
+      {{/if}}
+      <h2 class="site-description">{{@blog.description}}</h2>
     </div>
     <div class="expandable">
       <li class="tab">
@@ -34,9 +37,9 @@
                 </h1>
               </li>
             </ul>
-          </div> <!-- accordion -->
-        </div> <!-- tabcontent -->
+          </div>
+        </div>
       </li>
-    </div><!-- expandable -->
+    </div>
   </div>
 </div>
