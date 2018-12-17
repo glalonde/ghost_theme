@@ -1,3 +1,5 @@
+@import "variables.css";
+
 .smart-padding {
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -141,9 +143,8 @@ input[type=radio]:checked ~ .inverseexpandsection {
   display: none;
 }
 
-
 /* Wide screens above 1280px */
-@media only screen and (min-width: 960px) {
+@media only screen and (min-width: $wide_screen_width) {
 
   /* Resposition the middle and sidebar */
   .middle {
@@ -168,8 +169,8 @@ input[type=radio]:checked ~ .inverseexpandsection {
   #banner {
     height: 100%;
     position: absolute;
-    width: 180px;
-    right: 300px;
+    width: $banner_width;
+    right: calc($main_column_width/2);
   }
 
   /* When showing full sidebar, don't show the menu hide/show buttons */
@@ -184,7 +185,7 @@ input[type=radio]:checked ~ .inverseexpandsection {
 }
 
 /* Smaller than standard 960 (devices and browsers) */
-@media only screen and (max-width: 959px) {
+@media only screen and (max-width: calc($wide_screen_width - 1px)) {
   .middle {
     width: 100%;
     margin-top: 0px;

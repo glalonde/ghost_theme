@@ -1,14 +1,5 @@
 {{!< default}}
 
-{{!-- The tag above means: insert everything in this file
-into the {body} of the default.hbs template --}}
-
-<header class="site-header outer">
-    <div class="inner">
-        {{> "site-nav"}}
-    </div>
-</header>
-
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 
@@ -123,9 +114,6 @@ into the {body} of the default.hbs template --}}
         </div>
     </div>
 </aside>
-
-{{!-- Floating header which appears on-scroll, included from includes/floating-header.hbs --}}
-{{> floating-header}}
 
 {{/post}}
 
