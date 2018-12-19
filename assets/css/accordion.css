@@ -13,7 +13,6 @@
   /*background: url(bgbanner.png);*/
   background-color: rgb(38, 41, 44);
   color: rgb(255, 255, 255);
-  top: 100%;
   padding: 10px;
   text-align: right;
   /*box-shadow: 5px 5px 20px #000;*/
@@ -35,17 +34,6 @@
   text-align: right;
 }
 
-#commentform input[type=text] {
-  background-color: rgb(255, 255, 255);
-}
-#commentform input[type=text]:focus,
-#commentform input[type=email]:focus,
-#commentform textarea:focus {
-  color: rgb(54, 59, 63);
-}
-
-input[type=text] {
-}
 .searchtextbox:focus {
   color: #fff;
 }
@@ -104,7 +92,6 @@ input[type=text] {
   color: rgb(225, 77, 67);
 }
 
-
 /* default for the content is not shown */
 .accordion .tabcontent {
   padding-right: 5px;
@@ -145,8 +132,7 @@ input[type=radio]:checked ~ .inverseexpandsection {
 
 /* Wide screens above 1280px */
 @media only screen and (min-width: $wide_screen_width) {
-
-  /* Resposition the middle and sidebar */
+  /* Reposition the middle and sidebar */
   .middle {
     width: 765px;
     left: 50%;
@@ -167,6 +153,7 @@ input[type=radio]:checked ~ .inverseexpandsection {
   }
 
   #banner {
+    top: 100%;
     height: 100%;
     position: absolute;
     width: $banner_width;
@@ -206,6 +193,7 @@ input[type=radio]:checked ~ .inverseexpandsection {
   }
 
   #banner {
+    top: 0%;
     position: relative;
     width: 100%;
     right: auto;
