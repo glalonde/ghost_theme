@@ -42,11 +42,15 @@ production stylesheet in assets/built/screen.css
     --color-wash: #e5eff5;
     --color-darkmode: #151719;
 
+
+    /* EDIT: set fixed accent color to use instead of the admin controlled one */
+    --ghost-accent-color-fixed: #c36522;
+
     /*
     An accent color is also set by Ghost itself in
     Ghost Admin > Settings > Brand
 
-    --ghost-accent-color: {value};
+    --ghost-accent-color-fixed: {value};
 
     You can use this variale throughout your styles
      */
@@ -66,6 +70,19 @@ production stylesheet in assets/built/screen.css
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+.bg-port {
+    /* EDIT: add background */
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -100;
+    background-image: url("../bgp1.gif");
+    background-repeat: repeat;
+    image-rendering: pixelated;
 }
 
 .viewport > main {
@@ -92,7 +109,7 @@ production stylesheet in assets/built/screen.css
 .site-header {
     position: relative;
     color: #fff;
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
 }
 
 .site-header-cover {
@@ -158,7 +175,7 @@ production stylesheet in assets/built/screen.css
     font-size: 2.5rem;
     font-weight: 400;
     color: #fff;
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
 }
 
 
@@ -171,7 +188,7 @@ production stylesheet in assets/built/screen.css
     font-size: 1.6rem;
     line-height: 1.3em;
     color: #fff;
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
 }
 
 .gh-head a {
@@ -502,7 +519,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 }
 
 .home-template.gh-head-open .gh-head {
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
 }
 
 .home-template .gh-head-logo {
@@ -553,6 +570,13 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     border-radius: 3px;
 }
 
+/* EDIT: Add hover box-shadow styling for post cards */
+.post-card:hover {
+  -webkit-box-shadow:inset 0px 0px 0px 1px var(--ghost-accent-color-fixed);
+  -moz-box-shadow:inset 0px 0px 0px 1px var(--ghost-accent-color-fixed);
+  box-shadow:inset 0px 0px 0px 1px var(--ghost-accent-color-fixed);
+}
+
 .post-card-image {
     width: 100%;
     height: 200px;
@@ -585,7 +609,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
 
 .post-card-primary-tag {
     margin: 0 0 0.2em;
-    color: var(--ghost-accent-color);
+    color: var(--ghost-accent-color-fixed);
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 0.2px;
@@ -813,7 +837,7 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .article-tag a {
-    color: var(--ghost-accent-color);
+    color: var(--ghost-accent-color-fixed);
 }
 
 .article-title {
@@ -932,7 +956,7 @@ is the very first element in the post content */
 
 /* Now the content typography styles */
 .gh-content a {
-    color: var(--ghost-accent-color);
+    color: var(--ghost-accent-color-fixed);
     text-decoration: underline;
     word-break: break-word;
 }
@@ -967,7 +991,7 @@ is the very first element in the post content */
     top: 0;
     bottom: 0;
     width: 0.3rem;
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
 }
 
 .gh-content :not(pre) > code {
@@ -1432,7 +1456,7 @@ Ghost editor. */
     padding: 10px 20px;
     color: #fff;
     font-weight: 500;
-    background: var(--ghost-accent-color);
+    background: var(--ghost-accent-color-fixed);
     border-radius: 5px;
 }
 
@@ -1608,7 +1632,7 @@ Ghost editor. */
 
 .error-code {
     margin: 0;
-    color: var(--ghost-accent-color);
+    color: var(--ghost-accent-color-fixed);
     font-size: 12vw;
     line-height: 1em;
     letter-spacing: -5px;
