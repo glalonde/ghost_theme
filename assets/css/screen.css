@@ -45,6 +45,7 @@ production stylesheet in assets/built/screen.css
 
     /* EDIT: set fixed accent color to use instead of the admin controlled one */
     --ghost-accent-color-fixed: #c36522;
+    --background: #151719; 
 
     /*
     An accent color is also set by Ghost itself in
@@ -559,6 +560,7 @@ body:not(.gh-head-open) .gh-burger:hover .gh-burger-inner::after {
     display: flex;
     flex-direction: column;
     min-height: 220px;
+    background: var(--background) center center;
     background-size: cover;
     word-break: break-word;
 }
@@ -879,6 +881,24 @@ make sure this only happens on large viewports / desktop-ish devices.
 is laid out on top of. Canvas just defines the grid, we don't
 use it for applying any other styles. */
 
+.bg-canvas {
+    display: grid;
+    grid-template-columns:
+        [full-start]
+        minmax(4vmin, auto)
+            [wide-start]
+            minmax(auto, 240px)
+                [main-start]
+                    min(720px, calc(100% - 8vw))
+                [main-end]
+            minmax(auto, 240px)
+            [wide-end]
+        minmax(4vmin, auto)
+        [full-end]
+    ;
+    grid-template-rows: auto;
+}
+
 .gh-canvas {
     display: grid;
     grid-template-columns:
@@ -894,6 +914,7 @@ use it for applying any other styles. */
         minmax(4vmin, auto)
         [full-end]
     ;
+    grid-template-rows: auto;
 }
 
 .gh-canvas > * {
@@ -910,6 +931,16 @@ use it for applying any other styles. */
 
 .kg-width-full img {
     width: 100%;
+}
+
+.bg-div {
+    grid-column: main-start / main-end;
+    grid-row: 1 / -1;
+    background-color: var(--color-darkgrey);
+}
+.content-div {
+    grid-column: full-start / full-end;
+    grid-row: 1 / -1;
 }
 
 
@@ -1469,7 +1500,6 @@ Ghost editor. */
     padding: 4vmin;
     margin: 0 auto -40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: color-mod(var(--color-darkgrey) l(-5%));
 }
 
 .read-more {
@@ -1693,7 +1723,6 @@ Ghost editor. */
     margin: 40px 0 0 0;
     padding: 40px 4vmin 140px;
     color: #fff;
-    background: color-mod(var(--color-darkgrey) l(-5%));
 }
 
 .site-footer .inner {
