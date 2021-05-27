@@ -37,15 +37,16 @@ production stylesheet in assets/built/screen.css
     --color-yellow: #fecd35;
     --color-red: #f05230;
     --color-darkgrey: #15171A;
-    --color-midgrey: #738a94;
-    --color-lightgrey: #c5d2d9;
+    --color-midgrey: #999ea3;
+    --color-lightgrey: #c7ccd1;
     --color-wash: #e5eff5;
     --color-darkmode: #151719;
+    --color-blue-grey: #94b2d1;
 
 
     /* EDIT: set fixed accent color to use instead of the admin controlled one */
-    --ghost-accent-color-fixed: #c36522;
-    --background: #151719; 
+    --ghost-accent-color-fixed: #ed5235;
+    --background: #181f25; 
 
     /*
     An accent color is also set by Ghost itself in
@@ -176,7 +177,6 @@ production stylesheet in assets/built/screen.css
     font-size: 2.5rem;
     font-weight: 400;
     color: #fff;
-    background: var(--ghost-accent-color-fixed);
 }
 
 
@@ -189,7 +189,6 @@ production stylesheet in assets/built/screen.css
     font-size: 1.6rem;
     line-height: 1.3em;
     color: #fff;
-    background: var(--ghost-accent-color-fixed);
 }
 
 .gh-head a {
@@ -822,7 +821,11 @@ make sure this only happens on large viewports / desktop-ish devices.
 }
 
 .article-header {
-    padding: 0 0 6vmin 0;
+    padding: 6vmin 0 4vmin 0;
+}
+
+.article-footer {
+    padding: 6vmin 0 4vmin 0;
 }
 
 .article-tag {
@@ -855,15 +858,14 @@ make sure this only happens on large viewports / desktop-ish devices.
 
 .gh-canvas .article-image {
     grid-column: wide-start / wide-end;
-    width: 100%;
     margin: 6vmin 0 0;
 }
 
 .gh-canvas .article-image img {
+    grid-column: wide-start / wide-end;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 100%;
 }
 
 @media (max-width: 600px) {
@@ -881,40 +883,25 @@ make sure this only happens on large viewports / desktop-ish devices.
 is laid out on top of. Canvas just defines the grid, we don't
 use it for applying any other styles. */
 
-.bg-canvas {
-    display: grid;
-    grid-template-columns:
-        [full-start]
-        minmax(4vmin, auto)
-            [wide-start]
-            minmax(auto, 240px)
-                [main-start]
-                    min(720px, calc(100% - 8vw))
-                [main-end]
-            minmax(auto, 240px)
-            [wide-end]
-        minmax(4vmin, auto)
-        [full-end]
-    ;
-    grid-template-rows: auto;
-}
-
 .gh-canvas {
     display: grid;
     grid-template-columns:
         [full-start]
-        minmax(4vmin, auto)
+        minmax(4vw, auto)
             [wide-start]
-            minmax(auto, 240px)
-                [main-start]
-                    min(720px, calc(100% - 8vw))
-                [main-end]
-            minmax(auto, 240px)
+            minmax(auto, 160px)
+                [bg-start]
+                minmax(4vw, 80px)
+                    [main-start]
+                        min(1040px, calc(100% - 16vw))
+                    [main-end]
+                minmax(4vw, 80px)
+                [bg-end]
+            minmax(auto, 160px)
             [wide-end]
-        minmax(4vmin, auto)
+        minmax(4vw, auto)
         [full-end]
     ;
-    grid-template-rows: auto;
 }
 
 .gh-canvas > * {
@@ -934,9 +921,9 @@ use it for applying any other styles. */
 }
 
 .bg-div {
-    grid-column: main-start / main-end;
+    grid-column: bg-start / bg-end;
     grid-row: 1 / -1;
-    background-color: var(--color-darkgrey);
+    background-color: var(--background);
 }
 .content-div {
     grid-column: full-start / full-end;
@@ -960,7 +947,7 @@ headings, text, images and lists. We deal with cards lower down. */
 /* [id] represents all headings h1-h6, reset all margins */
 .gh-content > [id] {
     margin: 0;
-    color: var(--color-darkgrey);
+    color: var(--color-midgrey);
 }
 
 /* Add back a top margin to all headings, unless a heading
@@ -987,7 +974,7 @@ is the very first element in the post content */
 
 /* Now the content typography styles */
 .gh-content a {
-    color: var(--ghost-accent-color-fixed);
+    color: var(--color-blue-grey);
     text-decoration: underline;
     word-break: break-word;
 }
@@ -1812,7 +1799,7 @@ to the html tag on the very first line of the file.
  */
 
 html.dark-mode body {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-midgrey);
     background: var(--color-darkmode);
 }
 
@@ -1826,7 +1813,7 @@ html.dark-mode .post-card:hover {
 }
 
 html.dark-mode .post-card-byline-content a {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-blue-grey);
 }
 
 html.dark-mode .post-card-byline-content a:hover {
@@ -1850,7 +1837,7 @@ html.dark-mode .post-full-content {
 }
 
 html.dark-mode .article-title {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-lightgrey);
 }
 
 html.dark-mode .article-excerpt {
@@ -1866,7 +1853,7 @@ html.dark-mode .article-byline {
 }
 
 html.dark-mode .article-byline-meta h4 a {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-blue-grey);
 }
 
 html.dark-mode .article-byline-meta h4 a:hover {
@@ -1874,7 +1861,7 @@ html.dark-mode .article-byline-meta h4 a:hover {
 }
 
 html.dark-mode .no-image .author-social-link a {
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--color-blue-grey);
 }
 
 html.dark-mode .gh-content h1,

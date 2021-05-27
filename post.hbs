@@ -10,19 +10,9 @@ into the {body} tag of the default.hbs template --}}
 <article class="article {{post_class}}">
 
     <div class="gh-canvas">
-        <div class="bg-div">
-
-        </div>
-
-        <div class="content-div">
+    <div class="bg-div"></div>
+    <div class="content-div">
     <header class="article-header gh-canvas">
-
-        {{#if primary_tag}}
-        <section class="article-tag">
-            <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
-        </section>
-        {{/if}}
-
         <h1 class="article-title">{{title}}</h1>
 
         {{#if custom_excerpt}}
@@ -74,14 +64,19 @@ into the {body} tag of the default.hbs template --}}
         <section class="gh-content gh-canvas">
             {{content}}
         </section>
-        </div>
-    </div>
+
+    <footer class="article-footer gh-canvas">
+
 
     {{!--
     <section class="article-comments gh-canvas">
         If you want to embed comments, this is a good place to paste your code!
     </section>
     --}}
+    </footer>
+    </div>
+    </div>
+
 
 </article>
 
